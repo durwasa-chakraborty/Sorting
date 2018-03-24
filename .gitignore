@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for lang in ${@:2}
+do
+	wget -q0- https://www.gitignore.io/api/$lang >>$1
+done
