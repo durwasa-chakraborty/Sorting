@@ -1,6 +1,7 @@
 import random
 import time
 import operator
+import copy
 
 def timeit(method):
     """ The timeit decorator"""
@@ -19,6 +20,14 @@ class Sorting:
     @timeit
     def bubble_sort(self,list):
         """Bubble Sort"""
+        for i in range(len(list)):
+            for j in range(0,len(list)-i-1):
+                if(list[j] > list[j+1]):
+                    list[j],list[j+1] = list[j+1],list[j]
+        return list
+
+    def insertion_sort(self,list):
+        """Insertion Sort"""
         for i in range(1,len(list)):
             key = list[i]
             j = i-1
@@ -110,17 +119,17 @@ if __name__ == "__main__":
     obj = Sorting()
     input_list = random.sample(xrange(0,100000),500)
 
-    cpy_input_list = input_list
+    cpy_input_list = copy.copy(input_list)
     obj.bubble_sort(cpy_input_list)
 
-    cpy_input_list = input_list
+    cpy_input_list = copy.copy(input_list)
     obj.insertion_sort(cpy_input_list)
 
-    cpy_input_list = input_list
+    cpy_input_list = copy.copy(input_list)
     obj.quick_sort(cpy_input_list)
 
-    cpy_input_list = input_list
+    cpy_input_list = copy.copy(input_list)
     obj.randomized_quick_sort(cpy_input_list)
 
-    cpy_input_list = input_list
+    cpy_input_list = copy.copy(input_list)
     obj.merge_sort(cpy_input_list)
